@@ -2,13 +2,13 @@
 const NoteEditor = () => {
     return(
         <div className="half-width flex flex-column gap-s">
-            <input type = "text" id = "demo" class = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%"}}></input>
-            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit"}}></textarea>
-            <button class="btn btn-secondary">Add Note</button>
-            <div class = "flex gap-s align-center">
-                <button class = "round-btn cursor-pointer error" ></button>
-                <button class = "round-btn cursor-pointer success" ></button>
-                <button class = "round-btn cursor-pointer warning"></button>
+            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%"}}></input>
+            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit"}} maxLength = "50"></textarea>
+            <button className="btn btn-secondary">Add Note</button>
+            <div className = "flex gap-s align-center">
+                <button className = "round-btn cursor-pointer error" ></button>
+                <button className = "round-btn cursor-pointer success" ></button>
+                <button className = "round-btn cursor-pointer warning"></button>
                 <i className="material-icons cursor-pointer">local_offer</i>
                 <select name="priority">
                     <option value="">Select Priority</option>

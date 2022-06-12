@@ -8,8 +8,10 @@ const Homepage = () => {
     console.log(isLoggedIn)
 
     return(
-        <div className="w-65 padding-m-inline">
-            <NoteEditor />
+        <div className="grow-1 padding-m-inline light-border">
+            <div className="container center-block flex flex-center light-border">
+                <NoteEditor />
+            </div>
         </div>
     )
 }
