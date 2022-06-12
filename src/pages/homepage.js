@@ -1,4 +1,5 @@
 import { useUser } from "../context/user-context"
+import NoteEditor from '../components/note-editor'
 
 const Homepage = () => {
 
@@ -7,7 +8,9 @@ const Homepage = () => {
     console.log(isLoggedIn)
 
     return(
-        <h1>Homepage</h1>
+        <div className="w-65 padding-m-inline">
+            <NoteEditor />
+        </div>
     )
 }
 

@@ -1,8 +1,12 @@
+import { useLocation } from "react-router-dom"
 import SidebarElements from "./sidebar-components/sidebar-elements"
 
 const Sidebar = () => {
+
+    const location = useLocation()
+
     return(
-        <div>
+        <div className={`${location.pathname === "/login" ? "hide" :""}`}>
             <SidebarElements text = "Homepage" icon = "home" />
             <SidebarElements text = "Archive" icon = "archive" />
             <SidebarElements text = "Trash" icon = "delete" />
