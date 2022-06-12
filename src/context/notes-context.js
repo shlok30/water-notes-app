@@ -8,7 +8,7 @@ const NotesContextProvider = ({children}) => {
     const [notesState, notesDispatch] = useReducer(notesReducer,{title : "" , body : "" , colour : "", priority : "", isPinned : false })
     
     return(
-        <NotesContext.Provider>
+        <NotesContext.Provider value = {{notesState,notesDispatch}}>
             {children}
         </NotesContext.Provider>
     )

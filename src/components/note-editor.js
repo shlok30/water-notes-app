@@ -1,9 +1,16 @@
+import { useNotes } from "../context/notes-context"
 
 const NoteEditor = () => {
+
+    const {notesState : {title,body},notesDispatch} = useNotes()
+
+    console.log(title,body)
+
     return(
         <div className="half-width flex flex-column gap-s">
-            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%"}}></input>
-            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit"}} maxLength = "50"></textarea>
+            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%"}} value = {title} onChange = {(e) => notesDispatch({type:"TITLE",payload : e.target.value})}></input>
+            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit"}} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
+            <p>{50 - body.length} remaining</p>
             <button className="btn btn-secondary">Add Note</button>
             <div className = "flex gap-s align-center">
                 <button className = "round-btn cursor-pointer error" ></button>
