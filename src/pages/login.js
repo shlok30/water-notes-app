@@ -1,3 +1,4 @@
+import handleLogin from "../auth-functions/handleLogin"
 
 const LoginPage = () => {
     return(
@@ -25,7 +26,7 @@ const LoginPage = () => {
             </div>
 
             <button className="btn btn-secondary full-width m2-top">Login</button>
-            <button className="btn btn-success full-width m2-top">Guest Login</button>
+            <button className="btn btn-success full-width m2-top" onClick={() => handleLogin("guest@gmail.com","guest123")}>Guest Login</button>
             <div className = "m2-top">
                 <a href="" className = "primary-text">Create New Account?</a>
             </div>
