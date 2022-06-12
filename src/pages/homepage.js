@@ -10,7 +10,7 @@ const Homepage = () => {
 
     return(
         <div className="grow-1 padding-m-inline">
-            <div className="container center-block flex flex-center">
+            <div className="container flex flex-center">
                 <NoteEditor />
             </div>
             <h3 className="h-m padding-l-inline">Notes</h3>
