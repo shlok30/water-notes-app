@@ -1,9 +1,12 @@
 import axios from "axios"
 
-const handleLogin = (email,password) => {
+const handleLogin = (email,password,userDispatch) => {
     axios
      .post("/api/auth/login",{email,password})
-     .then(res => console.log(res.data))
+     .then(res => {
+        localStorage.setItem("userToken",res.data.encodedToken)
+        userDispatch({type : "LOGIN", payload : res.data.foundUser})
+     })
      .catch(err => console.log(err))
 }
 
