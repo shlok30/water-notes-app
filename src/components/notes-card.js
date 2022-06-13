@@ -1,7 +1,7 @@
 
-const NotesCard = ({title,body}) => {
+const NotesCard = ({title,body,colour}) => {
     return(
-        <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%"}}>
+        <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%",backgroundColor : colour ? colour : "white", color : colour ? "white" : "black"}}>
 	        <div className="card-header">
     	        <h4>{title}</h4>
                 <h5>Priority : Default</h5>
