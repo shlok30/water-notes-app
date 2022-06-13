@@ -4,7 +4,7 @@ const NotesCard = ({title,body}) => {
         <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%"}}>
 	        <div className="card-header">
     	        <h4>{title}</h4>
-                <h3>Priority : Default</h3>
+                <h5>Priority : Default</h5>
             </div>
             <div className="card-body">
     	        <p className="card-subtext">{body}</p>
