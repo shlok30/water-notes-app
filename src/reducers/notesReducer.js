@@ -7,6 +7,8 @@ const notesReducer = (state,{type,payload}) => {
             return {...state,body : payload}
         case "RESET":
             return {...state, title : "" , body : ""}
+        case "COLOUR": 
+            return {...state,colour : payload}
         default:
             return
     }
