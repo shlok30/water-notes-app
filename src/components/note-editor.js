@@ -1,6 +1,7 @@
 import { useNotes } from "../context/notes-context"
 import addNote from "../context/notes-functions/addNotes"
 import {useUser} from "../context/user-context"
+import ColourButtons from "./editor-components/color-buttons"
 
 const NoteEditor = () => {
 
@@ -17,9 +18,9 @@ const NoteEditor = () => {
             <p>{50 - body.length} remaining</p>
             <button className="btn btn-secondary" onClick={() => addNote({title,body},userDispatch,notesDispatch)}>Add Note</button>
             <div className = "flex gap-s align-center">
-                <button className = "round-btn cursor-pointer error" ></button>
-                <button className = "round-btn cursor-pointer success" ></button>
-                <button className = "round-btn cursor-pointer warning"></button>
+                <ColourButtons colourClassName={"error"} colour = {"#ff3b30"} />
+                <ColourButtons colourClassName={"success"} colour = {"#10b981"} />
+                <ColourButtons colourClassName={"warning"} colour = {"#fbbf24"} />
                 <i className="material-icons cursor-pointer">local_offer</i>
                 <select name="priority">
                     <option value="">Select Priority</option>
