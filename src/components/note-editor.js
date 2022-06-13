@@ -5,7 +5,7 @@ import ColourButtons from "./editor-components/color-buttons"
 
 const NoteEditor = () => {
 
-    const {notesState : {title,body},notesDispatch} = useNotes()
+    const {notesState : {title,body,colour},notesDispatch} = useNotes()
 
     const {userState,userDispatch} = useUser()
 
@@ -13,14 +13,15 @@ const NoteEditor = () => {
 
     return(
         <div className="half-width flex flex-column gap-s">
-            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%"}} value = {title} onChange = {(e) => notesDispatch({type:"TITLE",payload : e.target.value})}></input>
-            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit"}} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
+            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%",backgroundColor : colour ? colour : "white" , color : colour ? "white" : "black" }} value = {title} onChange = {(e) => notesDispatch({type:"TITLE",payload : e.target.value})}></input>
+            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit",backgroundColor : colour ? colour : "white", color : colour ? "white" : "black" }} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
             <p>{50 - body.length} remaining</p>
             <button className="btn btn-secondary" onClick={() => addNote({title,body},userDispatch,notesDispatch)}>Add Note</button>
             <div className = "flex gap-s align-center">
-                <ColourButtons colourClassName={"error"} colour = {"#ff3b30"} />
-                <ColourButtons colourClassName={"success"} colour = {"#10b981"} />
-                <ColourButtons colourClassName={"warning"} colour = {"#fbbf24"} />
+                <ColourButtons colourClassName={"error"} colourToApply = {"#ff3b30"} />
+                <ColourButtons colourClassName={"success"} colourToApply = {"#10b981"} />
+                <ColourButtons colourClassName={"warning"} colourToApply = {"#fbbf24"} />
+                <ColourButtons colourClassName={""} colourToApply = {""} />
                 <i className="material-icons cursor-pointer">local_offer</i>
                 <select name="priority">
                     <option value="">Select Priority</option>
