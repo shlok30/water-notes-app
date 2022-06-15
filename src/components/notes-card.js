@@ -1,10 +1,11 @@
+import getPriority from "../general-functions/getPriority"
 
-const NotesCard = ({title,body,colour}) => {
+const NotesCard = ({title,body,colour,priority}) => {
     return(
         <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%",backgroundColor : colour ? colour : "white", color : colour ? "white" : "black"}}>
 	        <div className="card-header">
     	        <h4>{title}</h4>
-                <h5>Priority : Default</h5>
+                <h5>Priority : {getPriority(priority)}</h5>
             </div>
             <div className="card-body">
     	        <p className="card-subtext">{body}</p>
