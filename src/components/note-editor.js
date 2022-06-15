@@ -2,6 +2,8 @@ import { useNotes } from "../context/notes-context"
 import addNote from "../context/notes-functions/addNotes"
 import {useUser} from "../context/user-context"
 import ColourButtons from "./editor-components/color-buttons"
+import getBackgroundColour from "../general-functions/getBackgroundColour"
+import getFontColour from "../general-functions/getFontColour"
 
 const NoteEditor = () => {
 
@@ -13,8 +15,8 @@ const NoteEditor = () => {
 
     return(
         <div className="half-width flex flex-column gap-s">
-            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%",backgroundColor : colour ? colour : "white" , color : colour ? "white" : "black" }} value = {title} onChange = {(e) => notesDispatch({type:"TITLE",payload : e.target.value})}></input>
-            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit",backgroundColor : colour ? colour : "white", color : colour ? "white" : "black" }} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
+            <input type = "text" id = "demo" className = "input-field" placeholder="Please Enter Title of your Note" style={{width : "100%",backgroundColor : getBackgroundColour(colour) , color : getFontColour(colour)}} value = {title} onChange = {(e) => notesDispatch({type:"TITLE",payload : e.target.value})}></input>
+            <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit",backgroundColor : getBackgroundColour(colour), color : getFontColour(colour) }} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
             <p>{50 - body.length} remaining</p>
             <button className="btn btn-secondary" onClick={() => addNote({title,body,colour,priority},userDispatch,notesDispatch)}>Add Note</button>
             <div className = "flex gap-s align-center">
