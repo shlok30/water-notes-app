@@ -7,7 +7,7 @@ import getFontColour from "../general-functions/getFontColour"
 
 const NoteEditor = () => {
 
-    const {notesState : {title,body,colour,priority},notesDispatch} = useNotes()
+    const {notesState : {title,body,colour,priority,labels},notesDispatch} = useNotes()
 
     const {userState,userDispatch} = useUser()
 
@@ -19,7 +19,7 @@ const NoteEditor = () => {
             <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit",backgroundColor : getBackgroundColour(colour), color : getFontColour(colour) }} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
             <p>{50 - body.length} remaining</p>
             <div className="flex gap-m">
-                <button className="btn btn-secondary" onClick={() => addNote({title,body,colour,priority},userDispatch,notesDispatch)}>Add Note</button>
+                <button className="btn btn-secondary" onClick={() => addNote({title,body,colour,priority,labels},userDispatch,notesDispatch)}>Add Note</button>
                 <button className="btn btn-success" onClick = {() => userDispatch({type : "MODAL"})}>Add Labels</button>
             </div>
             <div className = "flex gap-s align-center">

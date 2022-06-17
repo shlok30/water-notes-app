@@ -11,6 +11,8 @@ const notesReducer = (state,{type,payload}) => {
             return {...state,colour : payload}
         case "PRIORITY":
             return {...state,priority : payload}
+        case "LABELS":
+            return {...state, labels : [...payload]}
         default:
             return
     }
