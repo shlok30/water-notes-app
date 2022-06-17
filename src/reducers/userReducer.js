@@ -6,6 +6,8 @@ const userReducer = (state,{type, payload}) => {
         case "ADD_NOTE":
             console.log("Payload",payload)
             return {...state, notes : [...payload]}
+        case "MODAL":
+            return {...state, isModalActive : !state.isModalActive}
         default:
             return 
     }
