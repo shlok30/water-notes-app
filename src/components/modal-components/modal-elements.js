@@ -1,9 +1,9 @@
 
-const ModalElements = () => {
+const ModalElements = ({label}) => {
     return(
         <div className="flex gap-m align-center">
             <input type = "checkbox" />
-            <p>Label</p>
+            <p>{label}</p>
         </div>
     )
 }
