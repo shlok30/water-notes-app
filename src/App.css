@@ -45,3 +45,7 @@ textarea{
 .selected-border{
   border : 3px solid var(--primary-color)
 }
+
+.relative{
+  position: relative;
+}
