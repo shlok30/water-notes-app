@@ -5,7 +5,7 @@ const UserContext = createContext()
 
 const UserContextProvider = ({children}) => {
 
-    const [userState,userDispatch] = useReducer(userReducer,{isLoggedIn : false, notes : [] , archives : [] , trash : []})
+    const [userState,userDispatch] = useReducer(userReducer,{isLoggedIn : false, notes : [] , archives : [] , trash : [], userLabels : [], isModalActive : false})
 
     return(
         <UserContext.Provider value = {{userState, userDispatch}}>

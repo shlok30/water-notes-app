@@ -1,17 +1,19 @@
 import { useUser } from "../context/user-context"
 import NoteEditor from '../components/note-editor'
 import renderNoteCards from "../general-functions/renderNoteCards"
+import LabelsModal from "../components/labels-modal"
 
 const Homepage = () => {
 
-    const {userState : {isLoggedIn,notes}} = useUser()
+    const {userState : {isLoggedIn,notes,isModalActive}} = useUser()
 
     console.log(isLoggedIn)
 
     return(
         <div className="grow-1 padding-m-inline">
-            <div className="container flex flex-center">
+            <div className="container flex flex-center relative">
                 <NoteEditor />
+                {isModalActive ? <LabelsModal /> : null}
             </div>
             <h3 className="h-m padding-l-inline">Notes</h3>
             <div className="flex align-start gap-xl m3-top padding-l-inline">

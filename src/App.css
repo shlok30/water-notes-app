@@ -45,3 +45,12 @@ textarea{
 .selected-border{
   border : 3px solid var(--primary-color)
 }
+
+.relative{
+  position: relative;
+}
+
+.chip{
+  border-radius: 100%;
+  border : 2px solid teal
+}
