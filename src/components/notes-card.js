@@ -12,8 +12,8 @@ const NotesCard = ({title,body,colour,priority,labels}) => {
             <div className="card-body">
     	        <p className="card-subtext">{body}</p>
             </div>
-            <div className="flex gap-s">
-                {labels.map(label => <h5>{label}</h5>)}
+            <div className="flex padding-s gap-s">
+                {labels.map(label => <h5 className="chip light-border padding-s">{label}</h5>)}
             </div>
             <div className="card-footer flex space-between">
     	        <a href="" className="card-link">Archive</a>

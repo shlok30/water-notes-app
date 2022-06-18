@@ -49,3 +49,8 @@ textarea{
 .relative{
   position: relative;
 }
+
+.chip{
+  border-radius: 100%;
+  border : 2px solid teal
+}
