@@ -17,6 +17,13 @@ const OperationsComponent = () => {
                     <SortElements value = "low" />
                 </div>
             </div>
+            <div className="m2-top">
+                <h3 className="primary-text">Sort By Date</h3>
+                <div className="flex gap-m m2-top">
+                    <SortElements value = "latest" />
+                    <SortElements value = "oldest" />
+                </div>
+            </div>
         </div>
     )
 }
