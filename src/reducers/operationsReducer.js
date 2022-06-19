@@ -6,6 +6,8 @@ const operationsReducer = (state,{type,payload}) => {
                 return {...state,labelFilters : {...state.labelFilters, [payload] : !state.labelFilters[payload]}}
             }
             return {...state,labelFilters : {...state.labelFilters,[payload] : true}}
+        case "PRIORITY":
+            return {...state,prioritySort : payload}
         default:
             return
     }

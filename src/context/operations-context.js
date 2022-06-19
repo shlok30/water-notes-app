@@ -5,7 +5,7 @@ const OperationsContext = createContext()
 
 const OperationsContextProvider = ({children}) => {
 
-    const [operationsState, operationsDispatch] = useReducer(operationsReducer,{labelFilters : {None : true}})
+    const [operationsState, operationsDispatch] = useReducer(operationsReducer,{labelFilters : {None : true}, prioritySort : ""})
 
     return(
         <OperationsContext.Provider value = {{operationsState,operationsDispatch}}>
