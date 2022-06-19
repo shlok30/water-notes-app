@@ -13,8 +13,6 @@ const Homepage = () => {
 
     const {operationsState : {labelFilters,sorting}} = useOperations()
 
-    console.log("sorting state in operations",sorting)
-
     const filteredNotesByLabels = labelsFilter(notes,labelFilters)
 
     const notesSortedByPriority = sorting.name ? getNotesSorted(filteredNotesByLabels,sorting) : [...filteredNotesByLabels]
