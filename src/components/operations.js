@@ -9,7 +9,16 @@ const OperationsComponent = () => {
             <div className="m2-top">
                 <h3 className="primary-text">Filter By Labels</h3>
                 <div className="flex gap-m m2-top">
-                    {userLabels.map(label => <FilterElements label = {label} />)}
+                    {userLabels.map(label => <FilterElements value = {label} typeOfFilter = "label" />)}
+                </div>
+            </div>
+            <div className="m2-top">
+                <h3 className="primary-text">Filter By Labels</h3>
+                <div className="flex gap-m m2-top">
+                    <FilterElements value = "3" typeOfFilter="priority" />
+                    <FilterElements value = "2" typeOfFilter="priority" />
+                    <FilterElements value = "1" typeOfFilter="priority" />
+                    <FilterElements value = "0" typeOfFilter="priority" />
                 </div>
             </div>
             <div className="m2-top">
