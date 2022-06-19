@@ -21,7 +21,7 @@ const ModalElements = ({label}) => {
     }
 
     return(
-        <div className="flex gap-m align-center">
+        <div className={`flex gap-m align-center ${label === "None" ? "hide" : ""}`}>
             <input type = "checkbox" onChange={labelHandler} checked = {labels.includes(label)} />
             <p>{label}</p>
         </div>
