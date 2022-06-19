@@ -5,14 +5,17 @@ import LabelsModal from "../components/labels-modal"
 import OperationsComponent from "../components/operations"
 import { useOperations } from "../context/operations-context"
 import labelsFilter from "../general-functions/labelsFilter"
+import getNotesSortedByPriority from "../general-functions/getNotesSortedByPriority"
 
 const Homepage = () => {
 
     const {userState : {notes,isModalActive}} = useUser()
 
-    const {operationsState : {labelFilters}} = useOperations()
+    const {operationsState : {labelFilters,sorting}} = useOperations()
 
     const filteredNotesByLabels = labelsFilter(notes,labelFilters)
+
+    const notesSortedByPriority = sorting.name ? getNotesSortedByPriority(filteredNotesByLabels,sorting) : [...filteredNotesByLabels]
 
     return(
         <div className="grow-1 padding-m-inline">
@@ -23,7 +26,7 @@ const Homepage = () => {
             <OperationsComponent />
             <h3 className="h-m padding-l-inline">Notes</h3>
             <div className="flex align-start gap-xl m3-top padding-l-inline">
-                {renderNoteCards(filteredNotesByLabels)}
+                {renderNoteCards(notesSortedByPriority)}
             </div>
         </div>
     )

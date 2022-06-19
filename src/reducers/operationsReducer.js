@@ -7,7 +7,7 @@ const operationsReducer = (state,{type,payload}) => {
             }
             return {...state,labelFilters : {...state.labelFilters,[payload] : true}}
         case "PRIORITY":
-            return {...state,prioritySort : payload}
+            return {...state,sorting : {name : type.toLowerCase(), value : payload }}
         default:
             return
     }
