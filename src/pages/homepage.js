@@ -8,8 +8,6 @@ const Homepage = () => {
 
     const {userState : {isLoggedIn,notes,isModalActive}} = useUser()
 
-    console.log(isLoggedIn)
-
     return(
         <div className="grow-1 padding-m-inline">
             <div className="container flex flex-center relative">
