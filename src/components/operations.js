@@ -6,9 +6,11 @@ const OperationsComponent = () => {
     const {userState : {userLabels}} = useUser()
     return(
         <div className="container">
-            <div className="flex gap-m">
+            <div className="m2-top">
                 <h3 className="primary-text">Filter By Labels</h3>
-                {userLabels.map(label => <FilterElements label = {label} />)}
+                <div className="flex gap-m m2-top">
+                    {userLabels.map(label => <FilterElements label = {label} />)}
+                </div>
             </div>
             <div className="m2-top">
                 <h3 className="primary-text">Sort By Priorty</h3>
