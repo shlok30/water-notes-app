@@ -13,7 +13,7 @@ const NotesCard = ({title,body,colour,priority,labels}) => {
     	        <p className="card-subtext">{body}</p>
             </div>
             <div className="flex padding-s gap-s">
-                {labels.map(label => <h5 className="chip light-border padding-s">{label}</h5>)}
+                {labels.map(label => <h5 className={`chip light-border padding-s ${label === "None" ? "hide" : ""}`}>{label}</h5>)}
             </div>
             <div className="card-footer flex space-between">
     	        <a href="" className="card-link">Archive</a>

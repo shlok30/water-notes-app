@@ -3,10 +3,16 @@ import NoteEditor from '../components/note-editor'
 import renderNoteCards from "../general-functions/renderNoteCards"
 import LabelsModal from "../components/labels-modal"
 import OperationsComponent from "../components/operations"
+import { useOperations } from "../context/operations-context"
+import labelsFilter from "../general-functions/labelsFilter"
 
 const Homepage = () => {
 
-    const {userState : {isLoggedIn,notes,isModalActive}} = useUser()
+    const {userState : {notes,isModalActive}} = useUser()
+
+    const {operationsState : {labelFilters}} = useOperations()
+
+    const filteredNotesByLabels = labelsFilter(notes,labelFilters)
 
     return(
         <div className="grow-1 padding-m-inline">
@@ -17,7 +23,7 @@ const Homepage = () => {
             <OperationsComponent />
             <h3 className="h-m padding-l-inline">Notes</h3>
             <div className="flex align-start gap-xl m3-top padding-l-inline">
-                {renderNoteCards(notes)}
+                {renderNoteCards(filteredNotesByLabels)}
             </div>
         </div>
     )
