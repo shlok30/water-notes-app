@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useOperations } from "../context/operations-context"
 import { useUser } from "../context/user-context"
 import renderModalElements from "../general-functions/renderModalElements"
 
@@ -8,9 +9,14 @@ const LabelsModal = () => {//Ask why class with important wasn't working here?
 
     const {userState : {userLabels},userDispatch} = useUser()
 
+    const {operationsState : {labelFilters},operationsDispatch} = useOperations()
+
+    console.log("Label Operations State",labelFilters)
+
     const createLabelHandler = () => {
         userDispatch({type : "LABELS", payload : labelName})
         setLabelName("")
+        operationsDispatch({type : "LABELS", payload : labelName})
     }
 
     return(
