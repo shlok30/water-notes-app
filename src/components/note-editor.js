@@ -13,8 +13,6 @@ const NoteEditor = () => {
 
     const time = new Date() //Using milliseconds since 1970 January 1st to compare latest to oldest 
 
-    console.log(userState)
-
     const millisecondsSince1970 = time.getTime()
 
     return(

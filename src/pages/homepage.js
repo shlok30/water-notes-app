@@ -20,8 +20,6 @@ const Homepage = () => {
 
     const sortedNotes = sorting.name ? getNotesSorted(filteredNotesByPriority,sorting) : [...filteredNotesByPriority]
 
-    console.log("Sorting State",sorting)
-
     return(
         <div className="grow-1 padding-m-inline">
             <div className="container flex flex-center relative">

@@ -18,7 +18,7 @@ const NotesCard = ({title,body,colour,priority,labels}) => {
             <div className="card-footer flex space-between">
     	        <a href="" className="card-link">Archive</a>
                 <i className="material-icons cursor-pointer">local_offer</i>
-                <i className="material-icons cursor-pointer">edit</i>
+                <i className="material-icons cursor-pointer" onClick={() => console.log("Edit button was clicked")}>edit</i>
             </div>
         </div>
     )
