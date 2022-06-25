@@ -1,4 +1,4 @@
 
-const hideElement = (pathname) => pathname === "/archive" || pathname === "/trash" ? "hide" : ""
+const hideElement = (pathname,element) => (pathname === "/archive" && (element !== "archive")) || (pathname === "/trash" && (element === "edit" || element === "archive")) ? "hide" : ""
 
 export default hideElement
