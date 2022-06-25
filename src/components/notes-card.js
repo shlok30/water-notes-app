@@ -7,6 +7,7 @@ import getPriority from "../general-functions/getPriority"
 import archiveNote from "../context/notes-functions/archiveNote"
 import unArchive from "../context/notes-functions/unArchive"
 import hideElement from "../general-functions/hideElement"
+import addToTrash from "../context/notes-functions/addToTrash"
 
 const NotesCard = ({title,body,colour,priority,labels,date,id}) => {
 
@@ -30,7 +31,7 @@ const NotesCard = ({title,body,colour,priority,labels,date,id}) => {
             </div>
             <div className="card-footer flex space-between">
     	        <p className="card-link cursor-pointer" onClick={() => location.pathname === "/archive" ? unArchive(id,userDispatch) : archiveNote(id,{id,title,body,colour,priority,labels,date},userDispatch)}>{location.pathname === "/archive" ? "Unarchive" : "Archive"}</p>
-                <i className={`material-icons cursor-pointer ${hideElement(location.pathname)}`}>local_offer</i>
+                <i className={`material-icons cursor-pointer ${hideElement(location.pathname)}`} onClick = {() => addToTrash(id,userDispatch)}>delete</i>
                 <i className={`material-icons cursor-pointer ${hideElement(location.pathname)}`} onClick={() => notesDispatch({type : "SELECT_NOTE", payload : {title,body,colour,priority,labels : [...labels],date,id}})}>edit</i>
             </div>
         </div>
