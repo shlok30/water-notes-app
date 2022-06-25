@@ -1,12 +1,18 @@
+import { useLocation } from "react-router-dom"
 import { useNotes } from "../context/notes-context"
 import { useUser } from "../context/user-context"
 import getBackgroundColour from "../general-functions/getBackgroundColour"
 import getFontColour from "../general-functions/getFontColour"
 import getPriority from "../general-functions/getPriority"
+import archiveNote from "../context/notes-functions/archiveNote"
 
 const NotesCard = ({title,body,colour,priority,labels,date,id}) => {
 
     const {notesDispatch} = useNotes()
+
+    const {userDispatch} = useUser()
+
+    const location = useLocation()
 
     return(
         <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%",backgroundColor : getBackgroundColour(colour), color : getFontColour(colour)}}>
@@ -21,7 +27,7 @@ const NotesCard = ({title,body,colour,priority,labels,date,id}) => {
                 {labels.map(label => <h5 className={`chip light-border padding-s ${label === "None" ? "hide" : ""}`}>{label}</h5>)}
             </div>
             <div className="card-footer flex space-between">
-    	        <a href="" className="card-link">Archive</a>
+    	        <p className="card-link cursor-pointer" onClick={() => archiveNote(id,{id,title,body,colour,priority,labels,date},userDispatch)}>Archive</p>
                 <i className="material-icons cursor-pointer">local_offer</i>
                 <i className="material-icons cursor-pointer" onClick={() => notesDispatch({type : "SELECT_NOTE", payload : {title,body,colour,priority,labels : [...labels],date,id}})}>edit</i>
             </div>

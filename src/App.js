@@ -4,6 +4,7 @@ import Nav from "./components/nav";
 import Sidebar from "./components/sidebar";
 import Homepage from "./pages/homepage";
 import LoginPage from "./pages/login";
+import ArchivePage from "./pages/archive";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path = "/login" element = {<LoginPage />} />
           <Route path = "/homepage" element = {<Homepage />} />
+          <Route path = "/archive" element = {<ArchivePage />} />
         </Routes>
       </div>
     </>
