@@ -13,6 +13,8 @@ const userReducer = (state,{type, payload}) => {
             return {...state, archives : [...payload.archives], notes : [...payload.notes]}
         case "TRASH":
             return {...state, trash : [...payload.trash], notes : [...payload.notes]}
+        case "DELETE":
+            return {...state, trash : [...payload]}
         default:
             return 
     }
