@@ -1,8 +1,13 @@
+import { useNotes } from "../context/notes-context"
+import { useUser } from "../context/user-context"
 import getBackgroundColour from "../general-functions/getBackgroundColour"
 import getFontColour from "../general-functions/getFontColour"
 import getPriority from "../general-functions/getPriority"
 
-const NotesCard = ({title,body,colour,priority,labels}) => {
+const NotesCard = ({title,body,colour,priority,labels,date,id}) => {
+
+    const {notesDispatch} = useNotes()
+
     return(
         <div className="card-container flex flex-column text-card gap-m" style = {{width:"20%",backgroundColor : getBackgroundColour(colour), color : getFontColour(colour)}}>
 	        <div className="card-header">
@@ -18,7 +23,7 @@ const NotesCard = ({title,body,colour,priority,labels}) => {
             <div className="card-footer flex space-between">
     	        <a href="" className="card-link">Archive</a>
                 <i className="material-icons cursor-pointer">local_offer</i>
-                <i className="material-icons cursor-pointer">edit</i>
+                <i className="material-icons cursor-pointer" onClick={() => notesDispatch({type : "SELECT_NOTE", payload : {title,body,colour,priority,labels : [...labels],date,id}})}>edit</i>
             </div>
         </div>
     )

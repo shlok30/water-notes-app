@@ -4,16 +4,15 @@ import {useUser} from "../context/user-context"
 import ColourButtons from "./editor-components/color-buttons"
 import getBackgroundColour from "../general-functions/getBackgroundColour"
 import getFontColour from "../general-functions/getFontColour"
+import editNote from "../context/notes-functions/editNote"
 
 const NoteEditor = () => {
 
-    const {notesState : {title,body,colour,priority,labels},notesDispatch} = useNotes()
+    const {notesState : {title,body,colour,priority,labels,isEditing,idOfSelectedNote,date},notesDispatch} = useNotes()
 
     const {userState,userDispatch} = useUser()
 
     const time = new Date() //Using milliseconds since 1970 January 1st to compare latest to oldest 
-
-    console.log(userState)
 
     const millisecondsSince1970 = time.getTime()
 
@@ -23,7 +22,7 @@ const NoteEditor = () => {
             <textarea className="full-width half-height text-s padding-s note-body" placeholder="Please Enter the Content of your Note" style = {{height : "10rem",font:"inherit",backgroundColor : getBackgroundColour(colour), color : getFontColour(colour) }} maxLength = "50" value = {body} onChange = {(e) => notesDispatch({type:"BODY",payload : e.target.value})}></textarea>
             <p>{50 - body.length} remaining</p>
             <div className="flex gap-m">
-                <button className="btn btn-secondary" onClick={() => addNote({title,body,colour,priority,labels : labels.length > 0 ? [...labels] : ["None"],date : millisecondsSince1970 },userDispatch,notesDispatch)}>Add Note</button>
+                <button className="btn btn-secondary" onClick={() => isEditing ? editNote({title,body,colour,priority,labels : labels.length > 0 ? [...labels] : ["None"],date},idOfSelectedNote,userDispatch,notesDispatch)  : addNote({title,body,colour,priority,labels : labels.length > 0 ? [...labels] : ["None"],date : millisecondsSince1970 },userDispatch,notesDispatch)}>{isEditing ? "Edit Note" : "Add Note"}</button>
                 <button className="btn btn-success" onClick = {() => userDispatch({type : "MODAL"})}>Add Labels</button>
             </div>
             <div className = "flex gap-s align-center">
