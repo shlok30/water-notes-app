@@ -59,3 +59,7 @@ textarea{
   height: 50vh;
 }
 
+.error-text-colour{
+  color: var(--error-color);
+}
+
