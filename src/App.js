@@ -6,6 +6,7 @@ import Homepage from "./pages/homepage";
 import LoginPage from "./pages/login";
 import ArchivePage from "./pages/archive";
 import TrashPage from "./pages/trash";
+import LandingPage from "./pages/landing";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="flex m5-top">
         <Sidebar />
         <Routes>
+          <Route path = "/" element = {<LandingPage />} />
           <Route path = "/login" element = {<LoginPage />} />
           <Route path = "/homepage" element = {<Homepage />} />
           <Route path = "/archive" element = {<ArchivePage />} />
