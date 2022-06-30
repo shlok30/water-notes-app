@@ -59,18 +59,3 @@ textarea{
   height: 50vh;
 }
 
-.type-writter::after{
-  content: "";
-  height : 5%;
-  border : 2px solid black;
-  animation: blinking 0.5s infinite ease;
-}
-
-@keyframes blinking {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
