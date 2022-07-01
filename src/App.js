@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Nav />
-      <div className="flex m5-top">
+      <div className="flex space-between m5-top">
         <Sidebar />
         <Routes>
           <Route path = "/" element = {<LandingPage />} />

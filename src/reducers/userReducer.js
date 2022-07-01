@@ -15,6 +15,8 @@ const userReducer = (state,{type, payload}) => {
             return {...state, trash : [...payload.trash], notes : [...payload.notes]}
         case "DELETE":
             return {...state, trash : [...payload]}
+        case "LOGOUT":
+            return {...state, isLoggedIn : false, notes : [] , archives : [] , trash : []}
         default:
             return 
     }
