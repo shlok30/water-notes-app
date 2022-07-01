@@ -1,25 +1,38 @@
+import { useNavigate } from "react-router-dom"
+import handleSignup from "../auth-functions/handleSignup"
+import { useAuth } from "../context/auth-context"
+import { useUser } from "../context/user-context"
 
 const SignUp = () => {
+
+    const {email, password, confirmPassword, error, setEmail, setPassword, setConfirmPassword, setError} = useAuth()
+
+    const {userDispatch} = useUser()
+
+    const navigate = useNavigate()
+
     return(
         <div className = "container auth-container center-block m6-top light-border w-35">
 
             <div className = "primary-text center-text text-m bold">Sign Up</div>
             <div className = "padding-s">
-                <label htmlFor="demo" className="input-label">Email Address</label>
-                <input type = "email" id = "demo" className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}} placeholder="Enter Email" />
+                <label htmlFor="mail" className="input-label">Email Address</label>
+                <input type = "email" id = "mail" value = {email} onChange = {(e) => setEmail(e.target.value)} className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}} placeholder="Enter Email" />
             </div>
             
             <div className="padding-s flex flex-column">
-                <label htmlFor="demo1" className="input-label">Enter Password</label>
-                <input type = "password" id = "demo1" className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}}  placeholder="Enter Password" />
+                <label htmlFor="password" className="input-label">Enter Password</label>
+                <input type = "password" id = "password" value = {password} onChange ={(e) => setPassword(e.target.value)} className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}}  placeholder="Enter Password" />
             </div>
             
             <div className="padding-s flex flex-column">
-                <label htmlFor="demo1" className="input-label">Confirm Password</label>
-                <input type = "password" id = "demo1" className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}}  placeholder="Enter Password" />
+                <label htmlFor="confirm-password" className="input-label">Confirm Password</label>
+                <input type = "password" id = "confirm-password" value = {confirmPassword} onChange = {(e) => setConfirmPassword(e.target.value)} className = "input-field m2-top full-width" style = {{display:'block',width:'100%'}}  placeholder="Enter Password" />
             </div>
     
-            <button className="btn btn-secondary full-width m2-top">Sign Up</button>
+            <button className="btn btn-secondary full-width m2-top" onClick={() => password === confirmPassword ? handleSignup(email,password,userDispatch,navigate,setError,error) : setError("Passwords Don't Match")}>Sign Up</button>
+
+            <p className = "error-text-colour m2-top">{error}</p>
         
         </div>
     )
