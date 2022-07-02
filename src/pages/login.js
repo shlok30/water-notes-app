@@ -1,7 +1,9 @@
-import {useState} from 'react'
+import { useEffect } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import handleLogin from "../auth-functions/handleLogin"
-import { useUser } from "../context/user-context"
+import { useAuth } from '../context/auth-context'
+import {useUser} from "../context/user-context"
+
 
 const LoginPage = () => {
 
@@ -9,11 +11,13 @@ const LoginPage = () => {
 
     const navigate = useNavigate()
 
-    const [email,setEmail] = useState("")
+    const {email,password,error,setEmail,setPassword,setError} = useAuth()
 
-    const [password,setPassword] = useState("")
-
-    const [error,setError] = useState("")
+    useEffect(() => {
+        setEmail("")
+        setPassword("")
+        setError("")
+    },[])
 
     return(
     
@@ -39,10 +43,10 @@ const LoginPage = () => {
                 <a href="" className = "primary-text">Forgot Password</a>
             </div>
 
-            <button className="btn btn-secondary full-width m2-top" onClick = {() => handleLogin(email,password,userDispatch,navigate,setError,error)}>Login</button>
+            <button className="btn btn-secondary full-width m2-top" onClick = {() => email && password ? handleLogin(email,password,userDispatch,navigate,setError,error) : setError("Please fill all inputs")}>Login</button>
             <button className="btn btn-success full-width m2-top" onClick={() => handleLogin("guest@gmail.com","guest123",userDispatch,navigate)}>Guest Login</button>
             <div className = "m2-top">
-                <Link to = "/signup" className = "primary-text">Create New Account?</Link>
+                <Link to = "/signup" className = "primary-text" onClick={() => setError("")}>Create New Account?</Link>
             </div>
             <p className = "error-text-colour m2-top">{error}</p>
         </div>
