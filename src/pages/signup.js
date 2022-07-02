@@ -12,7 +12,7 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
+    useEffect(() => {  //Cleanup between pages
         setEmail("")
         setPassword("")
         setConfirmPassword("")

@@ -13,7 +13,7 @@ const LoginPage = () => {
 
     const {email,password,error,setEmail,setPassword,setError} = useAuth()
 
-    useEffect(() => {
+    useEffect(() => { //Cleanup between pages
         setEmail("")
         setPassword("")
         setError("")
