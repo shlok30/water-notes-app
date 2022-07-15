@@ -54,3 +54,12 @@ textarea{
   border-radius: 100%;
   border : 2px solid teal
 }
+
+.vh-50{
+  height: 50vh;
+}
+
+.error-text-colour{
+  color: var(--error-color);
+}
+
