@@ -40,7 +40,7 @@ const LoginPage = () => {
                     <input type = "checkbox" />
                     <p>Remember Me</p>
                 </div>
-                <a href="" className = "primary-text">Forgot Password</a>
+                <button className = "primary-text">Forgot Password</button>
             </div>
 
             <button className="btn btn-secondary full-width m2-top" onClick = {() => email && password ? handleLogin(email,password,userDispatch,navigate,setError,error) : setError("Please fill all inputs")}>Login</button>
