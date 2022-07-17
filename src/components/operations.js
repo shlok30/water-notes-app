@@ -13,7 +13,7 @@ const OperationsComponent = () => {
                 </div>
             </div>
             <div className="m2-top">
-                <h3 className="primary-text">Filter By Labels</h3>
+                <h3 className="primary-text">Filter By Priorty</h3>
                 <div className="flex gap-m m2-top">
                     <FilterElements value = "3" typeOfFilter="priority" />
                     <FilterElements value = "2" typeOfFilter="priority" />
